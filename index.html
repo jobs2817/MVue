@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="./Oberver.js"></script>
+  <script src="./index.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p v-html="title"></p>
+    <h1>{{ person.name }} -- {{ person.age }}</h1>
+    <p v-text="msg"></p>
+    <ul>
+      <li v-text="person.name"></li>
+      <li>列表 2</li>
+      <li>列表 3</li>
+    </ul>
+    <div>
+      <span>小可爱</span>
+      <input v-model="msg" type="text"> 
+    </div>
+    <p>{{count}}</p>
+    <button v-on:click="add">+ 1</button>
+  </div>
+  <script>
+    let vm = new MVue({
+      el: '#app',
+      data: {
+        title: '<h1>title</h1>',
+        person: {
+          name: '昊飞',
+          age: 18
+        },
+        count: 1,
+        msg: 'memeda'
+      },
+      methods: {
+        add() {
+          // this.count++
+          console.log(this.$data.count++)
+        }
+      }
+    })
+  </script>  
+</body>
+</html>
